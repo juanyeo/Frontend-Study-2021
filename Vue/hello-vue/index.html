@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="hello1">
+        {{ text1 }}
+    </div>
+    <script>
+        var hello1 = new Vue({
+            el: "#hello1",
+            data: {
+                text1: 'Hello Vue'
+            }
+        })
+    </script>
+
+    <div id="vBind">
+        <span v-bind:title="text2">
+            v-bind: 마우스를 올리면 title이 나타납니다.
+        </span>
+    </div>
+    <script>
+        var hello2 = new Vue({
+            el: "#vBind",
+            data: {
+                text2: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다'
+            }
+        })
+    </script>
+
+    <div id="vIf" v-if="show">
+        v-if: show 변수가 true 일 때만 출력
+    </div>
+    <script>
+        var hello3 = new Vue({
+            el: "#vIf",
+            data: {
+                show: true
+            }
+        })
+    </script>
+
+    <div id="vFor">
+        v-for: 필수! v-bind:key 속성
+        <ul>
+            <li v-for="item in items"
+                v-bind:key="item.id">
+                {{ item.message }}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var hello4 = new Vue({
+            el: "#vFor",
+            data: {
+                items: [
+                    {
+                        id: '1',
+                        message: '아이템 1'
+                    },
+                    {
+                        id: '2',
+                        message: '아이템 2'
+                    },
+                    {
+                        id: '3',
+                        message: '아이템 3'
+                    }
+                ]
+            }
+        })
+    </script>
+
+    <div id="vOn">
+        <div>v-on: {{ number }}</div>
+        <button v-on:click="clickElement">
+            Click
+        </button>
+    </div>
+    <script>
+        var hello5 = new Vue({
+            el: "#vOn",
+            data: {
+                number: 1
+            },
+            methods: {
+                clickElement () {
+                    this.number += 1
+                }
+            }
+        })
+    </script>
+
+    <div id="vModel">
+        <p>v-model: {{ message }}</p>
+        <input type="text" v-model="message"/>
+    </div>
+    <script>
+        var hello6 = new Vue({
+            el: "#vModel",
+            data: {
+                message: '양방향 데이터'
+            }
+        })
+    </script>
+
+    <div>
+        <div id="components">
+            component: 
+            <tag-item v-bind:textp="text3"></tag-item>
+        </div>
+    </div>
+    <script>
+        Vue.component('tag-item', {
+            props: ['textp'],
+            template: `<p>{{ textp }}</p>`
+        })
+
+        var hello7 = new Vue({
+            el: "#components",
+            data: {
+                text3: '컴포넌트로 전달할 데이터'
+            }
+        })
+    </script>
+</body>
+</html>
