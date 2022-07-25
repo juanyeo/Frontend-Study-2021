@@ -1,0 +1,328 @@
+<html>
+<head>
+<title>TMP List</title>
+<link rel="stylesheet" href="css/circle.css">
+<link rel="stylesheet" href="css/top_menu.css">
+<link rel="stylesheet" href="css/side_bar.css">
+<style>
+/* Style the tab */
+.tab {
+  position: relative;
+  top: 60px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-bottom: #f1f1f1;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  /*background-color: #ccc;*/
+  background-color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  position: relative;
+  top: 60px;
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  /*height: 80%;*/
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33%;
+  padding: 0px;
+  height: 150px; /* Should be removed. Only for demonstration */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create three equal columns that floats next to each other */
+.title_column {
+  float: left;
+  width: 33%;
+  padding: 0px;
+  height: 50px; /* Should be removed. Only for demonstration */
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
+}
+
+/* Clear floats after the columns */
+.title_row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+.tdata:hover {
+  background-color:slategray;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.topButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgb(23, 7, 66);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.topButton:hover {
+  background-color: rgb(92, 173, 187);
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+    <div class="menuIcon" onclick="menuTransform(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div><p></p>
+    <span>Automated</span><span>Transportation</span>
+    <span>Support</span><span>System</span><p></p>
+    <a href="#home">Login</a>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="tmp_main.html" style="font-size: 180%;">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html">Create New</a>
+  <a href="notification.html">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+
+<div id="main">
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'inProcess')" id="inProcessTab">in Process</button>
+    <button class="tablinks" onclick="openTab(event, 'Completed')">Completed</button>
+</div>
+
+<div id="inProcess" class="tabcontent">
+    <button onclick="topFunction()" id="topButton" class="topButton">Top</button>
+    <div class="title_row">
+        <div class="title_column">
+            <h4 style="text-align: center; color: #e08833;">Pending</h4>
+        </div>
+        <div class="title_column">
+            <h4 style="text-align: center; color: #4db53c;">Approved</h4>
+        </div>
+        <div class="title_column">
+            <h4 style="text-align: center; color: #d7362bdd;">Disapproved</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="c100 orange p30">
+                <span>6</span>
+                <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="c100 green p55">
+                <span>11</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="c100 red p15">
+                <span>3</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="inProcessTable">
+        <script>
+            var tableData = "", i;
+            tableData += "<tr><th>Status</th><th>Type</th><th>Start Date</th><th>End Date</th><th>Unit</th><th>Requester</th></tr>";
+            for(i=1; i<=30; i++) {
+                tableData += "<tr onClick='location.href=\"tmp_detail.html\"' class='tdata'>\
+                  <td>Submitted</td><td>Sedan</td><td>12 Feb 21</td>\
+                  <td>22 Feb 21</td><td>1-12 BN</td>\
+                  <td>CPT Homer, Simpson</td></tr>";
+            }
+            document.getElementById("inProcessTable").innerHTML = tableData;
+        </script>
+    </table>
+</div>
+  
+<div id="Completed" class="tabcontent">
+    <button onclick="topFunction()" id="topButton2" class="topButton">Top</button>
+    <div class="title_row">
+        <div class="title_column">
+            <h4 style="text-align: center; color: #4db53c;">Approved</h4>
+        </div>
+        <div class="title_column">
+            <h4 style="text-align: center; color: #d7362bdd;">Disapproved</h4>
+        </div>
+        <div class="title_column">
+            <h4 style="text-align: center; color: #1d1b80dd;">CBU</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="c100 green p75">
+                <span>116</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="c100 red p15">
+                <span>23</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="c100 blue p10">
+                <span>15</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="completedTable">
+        <script>
+            var tableData = "", i;
+            tableData += "<tr><th>Status</th><th>Type</th><th>Start Date</th><th>End Date</th><th>Unit</th><th>Requester</th></tr>";
+            for(i=1; i<=30; i++) {
+                tableData += "<tr onClick='location.href=\"tmp_detail.html\"' class='tdata'>\
+		<td>Approved</td><td>Van</td><td>11 Jan 21</td><td>03 Feb 21</td>\
+		<td>1-3 BDE</td><td>CPT Homer, Simpson</td></tr>";
+            }
+            document.getElementById("completedTable").innerHTML = tableData;
+        </script>
+    </table>
+</div>
+</div>
+<script>
+    function openTab(event, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      event.currentTarget.className += " active";
+    }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById("inProcessTab").click();
+    });
+
+    var topButton = document.getElementById("topButton");
+    var topButton2 = document.getElementById("topButton2");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if(document.body.scrollTop > 20 || document.documentElement.scrollTop >20) {
+            topButton.style.display = "block";
+            topButton2.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+            topButton2.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    function menuTransform(x) {
+        x.classList.toggle("change");
+        openCloseNav();
+    }
+
+    function openCloseNav() {
+      var sidebarWidth = document.getElementById("mySidebar").style.width;
+      if(sidebarWidth == "250px") {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      } else {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+    }
+
+    function rowClicked(obj) {
+      window.location = $(this).data("href");
+    }
+</script>
+</body>
+</html>

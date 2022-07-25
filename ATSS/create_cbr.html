@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>Create New CBR Request</title>
+<link rel="stylesheet" href="css/top_menu.css">
+<link rel="stylesheet" href="css/side_bar.css">
+<style>
+.form-container {
+  position: relative;
+  top: 80px;
+  background-color: whitesmoke;
+  width: 500px;
+  padding: 30px 20px;
+  margin: auto;
+  border-radius: 6px;
+}
+
+.toolbar a {
+  position: relative;
+  top: 80px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.toolbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.back_button {
+  position: absolute;
+  left: 20px;
+}
+
+.submit_button {
+  float: right;
+  position: absolute;
+  text-align: center;
+  right: 30%;
+  margin: 50px 10px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=date] {
+  width: 44%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  margin-left: 400px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+    <div class="menuIcon" onclick="menuTransform(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div><p></p>
+    <span>Automated</span><span>Transportation</span>
+    <span>Support</span><span>System</span><p></p>
+    <a href="#home">Login</a>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="tmp_main.html">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html" style="font-size: 180%;">Create New</a>
+  <a href="notification.html">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+
+<div id="main">
+  <div class="toolbar">
+    <a href="create.html" class="back_button">&laquo; Back</a>
+  </div>
+  <div class="form-container">
+    <form action="cbr_main.html" method="get">
+      <label>Number of Buses</label></br></br>
+      <input type="text" name="number_of_bus" placeholder="1"></br></br>
+
+      <label>Number of Passengers</label></br></br>
+      <input type="text" name="number_of_pax" placeholder="45"></br></br>
+
+      <label>Required Date</label></br></br>
+      <input type="date" name="required_date">
+      <label style="font-size: 15px;"><input type="checkbox" name="is_return_trip">
+	    Is one day return trip</label></br>
+      Depart trip pick-up time:&nbsp<input type="text" name="depart_pickup_time" placeholder="10:00" style="width: 44%;"></br>
+      Return trip pick-up time:&nbsp<input type="text" name="return_pickup_time_time" placeholder="10:00" style="width: 44%;"></br></br>
+
+      <label>Point of Contact</label></br></br>
+      <select name="poc_rank" style="width: 20%;">
+	      <option value="cpt">CPT</option>
+	      <option value="1lt">1LT</option>
+	      <option value="sfc">SFC</option>
+	      <option value="ssg">SSG</option>
+      </select>
+      <input type="text" name="poc_name" placeholder="Last, First" style="width: 50%;">
+      <select name="poc_unit" style="width: 20%;">
+        <option value="1-21 bn">1-21 BN</option>
+	      <option value="1-22 bn">1-22 BN</option>
+	      <option value="1-23 bn">1-23 BN</option>
+	      <option value="1-24 bn">1-24 BN</option>
+      </select></br>
+      Phone Number:&nbsp<input type="text" name="poc_number" placeholder="010-1234-1234" style="width: 70%;"></br></br>
+      
+      <label>Origin</label></br></br>
+      <select type="text" name="origin_camp" style="width: 49%">
+	      <option value="alpha">Camp Alpha</option>
+	      <option value="bravo">Camp Bravo</option>
+	      <option value="chalie">Camp Charlie</option>
+        <option value="area1">Training Area 1</option>
+	      <option value="area2">Training Area 2</option>
+	      <option value="area3">Training Area 3</option>
+        <option value="airport">Korea Airport</option>
+      </select>
+      <input type="text" name="origin_building" placeholder="BLDG 1234" style="width: 49%;"></br></br>
+
+      <label>Destination</label></br></br>
+      <select type="text" name="destination_camp" style="width: 49%">
+	      <option value="alpha">Camp Alpha</option>
+	      <option value="bravo">Camp Bravo</option>
+	      <option value="chalie">Camp Charlie</option>
+        <option value="area1">Training Area 1</option>
+	      <option value="area2">Training Area 2</option>
+	      <option value="area3">Training Area 3</option>
+        <option value="airport">Korea Airport</option>
+      </select>
+      <input type="text" name="destination_building" placeholder="BLDG 1234" style="width: 49%;"></br></br>
+
+      <label>Estimated Travel Cost:&nbsp&nbsp
+      <p style="color:red">$&nbsp783.00</p></label></br></br>
+
+      <label>Justification</label></br></br>
+      <textarea name="destin" placeholder="[unit] is requesting [vehicle] to conduct operations. The requested vehicle will transport [personnel] to conduct [tasks] at [destination]. Due to the frequency and unpredictability of travel requirements, other means of transportation are not feasible.
+
+1. [vehicle] or near substitute is required to 
+transport personnel to other installations, in particular [destination] in accordance 
+with [mission].
+2. Vehicle trips per day [trips per day].
+3. Area of operations: [location].
+4. Other vehicles cannot fulfill the transportation requirements and the mission." style="height: 200px"></textarea></br></br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+<script>
+    function menuTransform(x) {
+        x.classList.toggle("change");
+        openCloseNav();
+    }
+
+    function openCloseNav() {
+      var sidebarWidth = document.getElementById("mySidebar").style.width;
+      if(sidebarWidth == "250px") {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      } else {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>Upload Form</title>
+<style>
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 800px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: white;
+  color: black;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: white;
+  color: black;
+}
+</style>
+</head>
+<body>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Request Status</h2>
+    </div>
+    <div class="modal-body">
+      <span>02 Aug 2020</span>
+      <span>1-2A Co</span></br>
+      <span>03 Aug 2020</span>
+      <span>1-2 BN</span></br>
+      <span>04 Aug 2020</span>
+      <span>1st BDE</span></br>
+      <span>on process</span>
+      <span>2nd DIV</span></br>
+      <span>-</span>
+      <span>TMP Office</span></hr>
+    </div>
+    <div class="modal-footer">
+      <a href="tmp_main.html">&laquo; Return to 1st BDE</a>
+      <a href="tmp_main.html">Submit to TMP Office &raquo;</a>
+    </div>
+  </div>
+</div>
+<script>
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  location.href = "tmp_main.html";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    location.href = "tmp_main.html";
+  }
+}
+</script>
+</body>
+</html>

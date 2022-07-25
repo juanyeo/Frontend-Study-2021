@@ -1,0 +1,308 @@
+<html>
+<head>
+<title>TMP Detail</title>
+<link rel="stylesheet" href="css/circle.css">
+<link rel="stylesheet" href="css/top_menu.css">
+<link rel="stylesheet" href="css/side_bar.css">
+<style>
+.toolbar a {
+  position: relative;
+  top: 80px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.toolbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.back_button {
+  position: absolute;
+  left: 20px;
+}
+
+.edit_del_button {
+  float: right;
+  position: absolute;
+  right: 20px;
+}
+
+.card1 { grid-area: vehicle; padding: 10px 20px 20px 20px; }
+.card2 { grid-area: calendar; padding: 10px 20px 20px 20px; }
+.card3 { grid-area: justification; padding: 10px 20px 20px 20px; }
+.card4 { grid-area: history; padding: 10px 20px 20px 20px; }
+
+.grid-container {
+  position: relative;
+  top: 100px;
+  display: grid;
+  grid-template-areas:
+    'vehicle calendar'
+    'justification justification'
+    'history history';
+  grid-gap: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.grid-container > div {
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.info_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.info_tr {
+  text-align: left;
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+}
+
+.info_th {
+  font-size: 14px;
+  font-weight: normal;
+  color: rgba(89, 84, 84, 0.548);
+}
+
+#calendar {
+  align-items: center;
+  margin: 20 auto;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+.week-days {
+    height: 50px;
+    color: gray;
+}
+  
+.day {
+    width: 30px;
+    height: 40px;
+    text-align: center;
+}
+
+.other-month {
+    opacity: 0.3;
+}
+
+p {
+  text-align: center;
+}
+
+.his_table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.his_table_ele {
+  text-align: left;
+  padding: 8px;
+}
+
+.his_table_row:nth-child(even){background-color: #f2f2f2}
+</style>
+</head>
+<body>
+<div class="navbar">
+    <div class="menuIcon" onclick="menuTransform(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div><p></p>
+    <span>Automated</span><span>Transportation</span>
+    <span>Support</span><span>System</span><p></p>
+    <a href="#home">Login</a>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="tmp_main.html" style="font-size: 180%;">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html">Create New</a>
+  <a href="notification.html">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+
+<div id="main">
+  <div class="toolbar">
+    <a href="tmp_main.html" class="back_button">&laquo; List</a>
+    <a href="status_box.html" class="edit_del_button">Submit/Return Request</a>
+  </div>
+  <div class="grid-container">
+    <div class="card1">
+      <h2>Vehicle</h2>
+      <table class="info_table">
+        <tr class="info_tr"><th class="info_th">Type:</td><td>SUV</td></tr>
+        <tr class="info_tr"><th class="info_th">Number of Passengers:</td><td>5</td></tr>
+        <tr class="info_tr"><th class="info_th">Substitute Acceptable:</td><td>Yes</td></tr>
+        <tr class="info_tr"><th class="info_th">Official User:</td><td>SSG Printer, 1-18 BN</td></tr>
+        <tr class="info_tr"><th class="info_th">Driver:</td><td>SGT Shredder, 1-18 BN</td></tr>
+        <tr class="info_tr"><th class="info_th">Reporting Point:</td><td>BLDG 1234, Camp Centurys</td></tr>
+        <tr class="info_tr"><th class="info_th">Destination:</td><td>Camp Hanziboshi</td></tr>
+      </table>
+    </div>
+    <div class="card2">
+      <h2>Calendar</h2>
+      07 Jan 21 - 28 Jan 21
+      <div id="calendar"></div>
+    </div>
+    <div class="card3">
+      <h2>Justification</h2>
+      <p style="text-align: left;">Transportation is the easiest way of movement of humans, animals and goods 
+        from one location to another in other words, the action of transport is 
+        defined as a particular movement of an organism of thing from one point to
+        another. The field can be divided into infrastructure, vehicles and 
+        operations. Transport enables trade between people, which is essential for 
+        the development of civilizations.\n
+        Operations deal with the way the vehicles are operated, and the procedures 
+        set for this purpose, including financing, legalities, and policies. In the 
+        transport industry, operations and ownership of infrastructure can be 
+        either public or private, depending on the country and mode.
+      </p>
+    </div>  
+    <div class="card4">
+      <h2>History</h2>
+      <table class="his_table" id="his_table">
+        <script>
+            var table_html = "", i, j;
+            var history_data = [["0938 03 Jan 21", "1-21 BN", "CPT Haagen", "Requested", "1420 03 Jan 21"],
+                                ["1420 03 Jan 21", "1-2 BDE", "SFC Dazs", "Reviewed", "1106 05 Jan 21"],
+                                ["1106 05 Jan 21", "1 DIV", "MAJ Chocola", "Reviewed", "1705 06 Jan 21"],
+                                ["1705 06 Jan 21", "6 Corps", "CW4 Authoriz", "Approved", "1143 08 Jan 21"],
+                                ["1310 14 Jan 21", "1-21 BN", "CPT Haagen", "Updated", "-"]];
+            table_html += "<tr class='his_table_row'><th class='his_table_ele'>Received at</th><th class='his_table_ele'>Organization</th><th class='his_table_ele'>Name</th><th class='his_table_ele'>Description</th><th class='his_table_ele'>Completed</th></tr>";
+            for(i=1; i<=5; i++) {
+                table_html += "<tr class='his_table_row'>";
+                for(j=1; j<=5; j++) {
+                  table_html += "<td class='his_table_ele'>" + history_data[i-1][j-1] +"</td>";
+                }
+                table_html += "</tr>";
+            }
+            document.getElementById("his_table").innerHTML = table_html;
+        </script>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+    function menuTransform(x) {
+        x.classList.toggle("change");
+        openCloseNav();
+    }
+
+    function openCloseNav() {
+      var sidebarWidth = document.getElementById("mySidebar").style.width;
+      if(sidebarWidth == "250px") {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      } else {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+    }
+
+    // 출처: https://codepen.io/jacknumber/pen/bVgLVd
+    function calendar(params) {
+      var days_labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+          months_labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      
+      var days_in_month = getDaysInMonth(params.month, params.year),
+          first_day_date = new Date(params.year, params.month, 1),
+          first_day_weekday = first_day_date.getDay();
+      
+      var prev_month = params.month == 0 ? 11 : params.month - 1,
+          prev_year = prev_month == 11 ? params.year - 1 : params.year,
+          prev_days = getDaysInMonth(prev_month, prev_year);
+      
+      // calendar header
+      var html = '';
+      
+      function getDaysInMonth(month, year) {
+        // 0 = last day of the previous month
+        return new Date(year, month + 1, 0).getDate();
+      }
+      
+      // calendar content
+      html += '<table class="calendar-table">';
+      
+      // week days labels
+      html += '<tr class="week-days">';
+      for (var i = 0; i <= 6; i++) {
+        if(days_labels[i] == 'Sun') {
+          html += '<td class="day" style="color:red">';
+        } else if(days_labels[i] == 'Sat') {
+          html += '<td class="day" style="color:blue">';
+        } else {
+          html += '<td class="day">';
+        }
+        html += days_labels[i];
+        html += '</td>';
+      }
+      html += '</tr>';
+      
+      var w = 0; // week day
+      var n = 1; // next days date
+      var c = 1; // current date
+      
+      // dates loop
+      for (var i = 0; i < 6*days_labels.length; i++) {
+        if (w == 0) {
+          // first week's day
+          html += '<tr class="week">';
+        }    
+        
+        if (i < new Date(params.year, params.month, 1).getDay()) {
+          // previous month's day
+          html += '<td class="day other-month">' + (prev_days - first_day_weekday + i + 1) + '</td>';
+        } else if (c > days_in_month) {
+          // next month's day
+          html += '<td class="day other-month">' + n + '</td>';
+          n++;
+        } else {
+          // current month's day
+          var options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
+          var display_date = new Date(params.year, params.month, c);
+          if(7 <= c & c <= 28) {
+            html += '<td class="day" style="background-color: #f1f1f1;" title="' + display_date.toLocaleDateString('en-GB', options) + '">' + c + '</td>';
+          } else {
+            html += '<td class="day" title="' + display_date.toLocaleDateString('en-GB', options) + '">' + c + '</td>';
+          } 
+          //html += '<td class="day" title="' + display_date.toLocaleDateString('en-GB', options) + '">' + c + '</td>';
+          c++;
+        }
+        
+        if (w == days_labels.length - 1) {
+          // last week's day
+          html += '</tr>';
+          w = 0;
+        } else {
+          w++;
+        }
+      }  
+
+      html += '</tr>'; 
+      return html;
+    }
+
+    var now = new Date();
+    var params = {
+      month: now.getMonth(),
+      year: now.getFullYear()
+    };
+    document.getElementById('calendar').innerHTML = calendar(params);
+</script>
+</body>
+</html>

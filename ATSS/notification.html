@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Notifications</title>
+<link rel="stylesheet" href="css/top_menu.css">
+<link rel="stylesheet" href="css/side_bar.css">
+<link rel="stylesheet" href="css/channel.css">
+<link rel="stylesheet" href="css/notification.css">
+<style>
+  
+</style>
+</head>
+<body>
+<div class="navbar">
+    <div class="menuIcon" onclick="menuTransform(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div><p></p>
+    <span>Automated</span><span>Transportation</span>
+    <span>Support</span><span>System</span><p></p>
+    <a href="#home">Login</a>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="tmp_main.html">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html">Create New</a>
+  <a href="notification.html" style="font-size: 180%;">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+
+<div id="main" style="padding: 0px; width: 40%; margin:auto;">
+  <div id="header_div" class="header" style="position: relative; top: 60px;" >
+    <h2 style="margin:5px">Notifications</h2>
+  </div>
+
+ <ul id="todo_ul" style="position: relative; top: 62px;">
+   <li><h4 class="noti_title">Request Approved</h4>
+    TMP Van 12 FEB 21 - 25 FEB 21<i class="dtg">08/02/2021 11:21</i></li>
+   <li><h4 class="noti_title">Request Returned</h4>
+    TMP SUV 14 FEB 21 - 10 MAR 21<i class="dtg">08/02/2021 13:06</i></li>
+   <li><h4 class="noti_title">Received Request</h4>
+    CMR 15 FEB 21 Camp Bravo<i class="dtg">08/02/2021 13:11</i></li>
+   <li><h4 class="noti_title">Request Disapproved</h4>
+    CMR 09 FEB 21 Training Area 3<i class="dtg">08/02/2021 15:19</i></li>
+   <li><h4 class="noti_title">Request Approved</h4>
+    CMR 10 FEB 21 Camp Bravo<i class="dtg">09/02/2021 09:34</i></li>
+   <li><h4 class="noti_title">Request Approved</h4>
+    CMR 11 FEB 21 Camp Alpha<i class="dtg">09/02/2021 10:51</i></li>
+   <li><h4 class="noti_title">Received Request</h4>
+    TMP Truck 13 FEB 21 - 16 FEB 21<i class="dtg">09/02/2021 11:20</i></li>
+   <li><h4 class="noti_title">Received Request</h4>
+    CMR 17 FEB 21 Korea Airport<i class="dtg">09/02/2021 14:29</i></li>
+   <li><h4 class="noti_title">Received Request</h4>
+    CMR 19 FEB 21 Camp Bravo<i class="dtg">09/02/2021 15:01</i></li>
+ </ul>
+</div>
+<script>
+    function menuTransform(x) {
+        x.classList.toggle("change");
+        openCloseNav();
+    }
+
+    function openCloseNav() {
+      var sidebarWidth = document.getElementById("mySidebar").style.width;
+      if(sidebarWidth == "250px") {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      } else {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+    }
+
+// Create a "close" button and append it to each list item
+var todo_list = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < todo_list.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  todo_list[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("todo_input").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("todo_ul").appendChild(li);
+  }
+  document.getElementById("todo_input").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>

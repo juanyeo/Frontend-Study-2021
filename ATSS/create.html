@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Create New Request</title>
+<link rel="stylesheet" href="css/top_menu.css">
+<link rel="stylesheet" href="css/side_bar.css">
+<link rel="stylesheet" href="css/flip_card.css">
+<style>
+
+</style>
+</head>
+<body>
+<div class="navbar">
+    <div class="menuIcon" onclick="menuTransform(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div><p></p>
+    <span>Automated</span><span>Transportation</span>
+    <span>Support</span><span>System</span><p></p>
+    <a href="#home">Login</a>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="tmp_main.html">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html" style="font-size: 180%;">Create New</a>
+  <a href="notification.html">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+<div id="main">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front" onClick="location.href='create_tmp.html';">
+      <h1>TMP</h1>
+    </div>
+    <div class="flip-card-back" onClick="location.href='create_tmp.html';">
+      <h3>EA 571-E</h3>
+      <p>TMP request has to be sent at least 3 working days prior to the start date</p>
+      <h4 style="position: absolute; bottom: 20px;">Click & Create</h4>
+    </div>
+  </div>
+</div>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front" onClick="location.href='create_cbr.html';">
+      <h1>CMR</h1>
+    </div>
+    <div class="flip-card-back" onClick="location.href='create_cbr.html';">
+      <h3>Combined Movement Request</h3>
+      <p>CMR request has to be sent at least 48 hours prior to the start date</p>
+      <h4 style="position: absolute; bottom: 20px;">Click & Create</h4>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+    function menuTransform(x) {
+        x.classList.toggle("change");
+        openCloseNav();
+    }
+
+    function openCloseNav() {
+      var sidebarWidth = document.getElementById("mySidebar").style.width;
+      if(sidebarWidth == "250px") {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      } else {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+    }
+</script>
+</body>
+</html>

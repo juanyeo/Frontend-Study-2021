@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Create New TMP Request</title>
+<style>
+
+</style>
+</head>
+<body>
+<div><b>Automated Transportation Support System</b><img alt="Profile_Photo">PFC Yeo, Juan</div>
+
+<div>
+  <a href="tmp_main.html">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html">Create New</a>
+  <a href="notification.html">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+  
+<div class="toolbar">
+  <a href="create.html">&laquo; Back</a>
+</div>
+
+<form action="tmp_main.html" method="get">
+  <label>Vehicle Type</label></br>
+  <select name="vehicle_type">
+    <option value="van">Van</option>
+    <option value="bus">Bus</option>
+    <option value="suv">SUV</option>
+    <option value="bongo">Bongo</option>
+    <option value="sedan">Sedan</option>
+    <option value="truck">Truck</option>
+  </select></br>
+  <label><input type="checkbox" checked="checked" name="subacc">Is a substitute acceptable,
+    if primary type of vehicle is not available</label></br></br>
+  
+  <label>Number of Passengers</label></br>
+  <input type="text" name="pax_num" placeholder="10"></br></br>
+
+  <label>Required Date</label></br>
+  Start at:&nbsp<input type="date" name="start_date">
+	<input type="text" name="start_time" placeholder="10:00"></br>
+  End at:&nbsp&nbsp<input type="date" name="start_date">
+  <input type="text" name="start_time" placeholder="10:00"></br></br>
+  
+  <label>Official User</label></br>
+  Vehicle User:&nbsp
+  <select name="ou_rank">
+	  <option value="cpt">CPT</option>
+	  <option value="1lt">1LT</option>
+	  <option value="sfc">SFC</option>
+	  <option value="ssg">SSG</option>
+  </select>
+  <input type="text" name="ou_name" placeholder="Last, First">
+  <select name="ou_unit">
+	  <option value="1-21 bn">1-21 BN</option>
+	  <option value="1-22 bn">1-22 BN</option>
+	  <option value="1-23 bn">1-23 BN</option>
+	  <option value="1-24 bn">1-24 BN</option>
+  </select></br>
+  Driver:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <select name="dr_rank">
+	  <option value="cpt">CPT</option>
+	  <option value="1lt">1LT</option>
+	  <option value="sfc">SFC</option>
+	  <option value="ssg">SSG</option>
+  </select>
+  <input type="text" name="dr_name" placeholder="Last, First">
+  <select name="dr_unit">
+	  <option value="1-21 bn">1-21 BN</option>
+	  <option value="1-22 bn">1-22 BN</option>
+	  <option value="1-23 bn">1-23 BN</option>
+	  <option value="1-24 bn">1-24 BN</option>
+  </select></br></br>
+
+  <label>Reporting Point</label></br>
+  <select type="text" name="rep_camp">
+	  <option value="alpha">Camp Alpha</option>
+	  <option value="bravo">Camp Bravo</option>
+	  <option value="chalie">Camp Charlie</option>
+  </select>
+  <input type="text" name="rep_detail" placeholder="BLDG 1234"></br></br>
+
+  <label>Destination</label></br></br>
+  <input type="text" name="destin" placeholder="Training Area 1.."></br></br>
+
+  <label>Justification</label></br></br>
+  <textarea name="destin" style="height: 200px"></textarea></br></br>
+  
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

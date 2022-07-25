@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>Status Box</title>
+<link rel="stylesheet" href="css/timeline.css">
+<style>
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 800px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: white;
+  color: black;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: white;
+  color: black;
+}
+
+.toolbar a {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.toolbar a:hover {
+  background-color: #45a049;
+}
+
+.toolbar_button {
+  left: 360px;
+  margin: 20px 10px;
+}
+</style>
+</head>
+<body>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Request Status</h2>
+    </div>
+    <div class="modal-body">
+      <section class="time-line-box">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="timestamp"><span class="date">02 Aug 2020</span></div>
+            <div class="status"><span>1-2A Co</span></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="timestamp"><span class="date">03 Aug 2020</span></div>
+            <div class="status"><span>1-2 BN</span></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="timestamp"><span class="date">04 Aug 2020</span></div>
+            <div class="status"><span>1st BDE</span></div>
+          </div>
+          <div class="swiper-slide" style="background-color: white;">
+            <div class="timestamp"><span class="date">on process</span></div>
+            <div class="status"><span>2nd DIV</span></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="timestamp"><span class="date">-</span></div>
+            <div class="status"><span>TMP Office</span></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="modal-footer">
+      <div class="toolbar">
+        <a href="tmp_main.html" class="toolbar_button">&laquo; Return to 1st BDE</a>
+        <a href="tmp_main.html" class="toolbar_button">Submit to TMP Office &raquo;</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  location.href = "tmp_main.html";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    location.href = "tmp_main.html";
+  }
+}
+</script>
+</body>
+</html>

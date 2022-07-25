@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>CBR List</title>
+<style>
+
+</style>
+</head>
+<body>
+<div><b>Automated Transportation Support System</b><img alt="Profile_Photo">PFC Yeo, Juan</div>
+
+<div>
+  <a href="tmp_main.html">TMP Requests</a>
+  <a href="cbr_main.html">CBR Requests</a>
+  <a href="upload.html">Upload Form</a>
+  <a href="create.html">Create New</a>
+  <a href="notification.html">Notifications</a>
+  <a href="#">Analytics</a>
+</div>
+
+<div class="tab">
+    <button onclick="openTab(event, 'inProcess')" id="inProcessTab">in Process</button>
+    <button onclick="openTab(event, 'Completed')">Completed</button>
+</div>
+
+<div id="inProcess">
+    <div>
+        <span>Pending: 12</span>
+        <span>Approved: 6</span>
+        <span>Disapproved: 2</span>
+    </div>
+
+    <table id="inProcessTable">
+        <script>
+            var tableData = "", i;
+            tableData += "<tr><th>Status</th><th>Date</th><th>Origin</th><th>Destination</th><th>Unit</th><th>Requester</th></tr>";
+            for(i=1; i<=30; i++) {
+                tableData += "<tr onClick='location.href=\"cbr_detail.html\"' class='tdata'>\
+                  <td>Pending</td><td>10 Feb 21</td><td>Camp Alpha, BLDG 3310</td>\
+                  <td>Training Area 1, BLDG 120</td><td>1-31 BN</td>\
+                  <td>CPT Homer, Simpson</td></tr>";
+            }
+            document.getElementById("inProcessTable").innerHTML = tableData;
+        </script>
+    </table>
+    <button onclick="topFunction()" id="topButton">Top</button>
+</div>
+  
+<div id="Completed">
+    <div>
+      <span>Approved: 116</span>
+      <span>Disapproved: 23</span>
+      <span>Cancelled: 15</span>
+    </div>
+
+    <table id="completedTable">
+        <script>
+            var tableData = "", i;
+            tableData += "<tr><th>Status</th><th>Date</th><th>Origin</th><th>Destination</th><th>Unit</th><th>Requester</th></tr>";
+            for(i=1; i<=30; i++) {
+                tableData += "<tr onClick='location.href=\"cbr_detail.html\"' class='tdata'>\
+		                          <td>Approved</td><td>04 Feb 21</td><td>Camp Alpha, BLDG 1002</td><td>Camp Charlie, BLDG 2190</td>\
+		                          <td>1-12 BN</td><td>CPT Homer, Simpson</td></tr>";
+            }
+            document.getElementById("completedTable").innerHTML = tableData;
+        </script>
+    </table>
+    <button onclick="topFunction()" id="topButton2">Top</button>
+</div>
+<script>
+    function openTab(event, tabName) {
+      var i, tabcontent, tablinks;
+      inProcessBlock = document.getElementById("inProcess");
+      completedBlock = document.getElementById("Completed");
+      if(tabName == "inProcess") {
+        inProcessBlock.style.display = "block";
+        completedBlock.style.display = "none";
+      } else {
+        inProcessBlock.style.display = "none";
+        completedBlock.style.display = "block";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById("inProcessTab").click();
+    });
+
+    var topButton = document.getElementById("topButton");
+    var topButton2 = document.getElementById("topButton2");
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    function rowClicked(obj) {
+      window.location = $(this).data("href");
+    }
+</script>
+</body>
+</html>
